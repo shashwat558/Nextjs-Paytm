@@ -1,7 +1,7 @@
 "use client"
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Appbar } from "@repo/ui/appbar";
 import { useRouter } from "next/navigation";
@@ -22,7 +22,7 @@ export function AppbarClient() {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <Appbar
         onSignin={signIn}
         onSignout={async () => {
@@ -31,7 +31,7 @@ export function AppbarClient() {
         }}
         user={session?.user}
       />
-    </div>
+    </React.Fragment>
   );
 }
 
