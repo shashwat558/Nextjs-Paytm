@@ -16,13 +16,14 @@ const SUPPORTED_BANKS = [{
 }]
 
 
-export const AddMoney = async () => {
+export const AddMoney = () => {
     const [redirectUrl, setRedirectedUrl] = useState(SUPPORTED_BANKS[0]?.redirectUrl);
     const [amount, setAmount] = useState(0);
     const [provider, setProvider] = useState(SUPPORTED_BANKS[0]?.name || "");
     return <Card title="Add Money">
         <div className="w-full">
             <TextInput label={"Amount"} placeholder={"Amount"} onChange={(value) => {
+                //@ts-ignore
                 setAmount(value)
 
             }}/>
@@ -41,7 +42,7 @@ export const AddMoney = async () => {
             }))}/>
             <div className="flex justify-center pt-4">
                 <Button onClick={async () => {
-                    await createOnRamptsnx(amount * 100, provider)
+                    await createOnRamptsnx(amount*100, provider)
                     window.location.href = redirectUrl || ""
                 }}>Add Money</Button>
             </div>

@@ -1,10 +1,10 @@
-"use serverS"
+"use server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
 import prisma from "@repo/db/client";
 
 
-export async function createOnRamptsnx({amount, provider}:{ amount:number, provider:string}){
+export async function createOnRamptsnx(amount: number, provider: string){
     const session = await getServerSession(authOptions);
     const userId = session.user?.id;
     const token = Math.random().toString();
@@ -13,9 +13,9 @@ export async function createOnRamptsnx({amount, provider}:{ amount:number, provi
             message: "User not logged in"
         }
     }
-    prisma.onRampTransaction.create({
+    await prisma.onRampTransaction.create({
         data: {
-            userId,
+            userId: Number(userId),
             amount: amount,
             status: "Processing",
             provider: provider,
