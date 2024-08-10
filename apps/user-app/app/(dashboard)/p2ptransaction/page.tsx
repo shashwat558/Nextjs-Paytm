@@ -1,8 +1,11 @@
 import React from 'react'
+import { SendCard } from '../../../components/SendCard'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div className='w-full h-full'  >
+        <SendCard />
+    </div>
   )
 }
 
