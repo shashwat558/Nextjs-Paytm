@@ -3,8 +3,6 @@ import { SendCard } from '../../../components/SendCard'
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../../lib/auth';
 import prisma from '@repo/db/client';
-import { Center } from '@repo/ui/center';
-import { Card } from '@repo/ui/card';
 import { P2pTransaction } from '../../../components/P2pTransaction';
 
 
