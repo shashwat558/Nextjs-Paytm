@@ -11,18 +11,18 @@ export const P2pTransaction = ({
 
         if(!transactions.length){
             return <Card title="Recent transactions">
-                <div className="text-center p-8">
+                <div className="text-center">
                     No recent Transaction
                 </div>
             </Card>
         }
         return <Card title="Recent transactions">
 
-           <div className="pt-2">
-           {transactions.map(t => <div className="flex justify-center">
+           <div className="">
+           {transactions.map(t => <div className="flex justify-between">
                 <div>
                 <div className="text-sm">
-                    Recieved INR
+                    Sent INR
                 </div>
                 <div className="text-slate-600 text-xs">
                     {t.time.toDateString()}

@@ -12,22 +12,24 @@ async function getP2ptransactions() {
   const session = await getServerSession(authOptions);
   const txns = await prisma.p2pTransfer.findMany({
       where: {
-          fromUserId: session?.user?.id
+          fromUserId: Number(session?.user?.id)
       }
   })
   return txns.map(t => ({
       time: t.timestamp,
       amount: t.amount,
-      provider: t.fromUserId
+      provider: Number(t.fromUserId)
   }))
 }
 
+
+
 export default async function () {
   const p2pTransactions = await getP2ptransactions();  
-  return <div className='w-full'>
-    
-      <SendCard />
-      <P2pTransaction transactions={p2pTransactions}/>
-   
-  </div>
+  return <div className='w-full flex justify-center gap-10 items-center'>
+  <SendCard />
+  <P2pTransaction transactions={p2pTransactions} />
+</div>
 }
+
+
