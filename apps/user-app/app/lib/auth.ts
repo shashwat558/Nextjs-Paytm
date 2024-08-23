@@ -2,7 +2,7 @@ import db from "@repo/db/client";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { AuthOptions, DefaultSession } from "next-auth";
-import { NextAuthOptions, User } from "next-auth";
+
 
 // Define types for credentials
 type Credentials = {
@@ -19,7 +19,7 @@ declare module "next-auth" {
   }
   
 
-export const authOptions: NextAuthOptions = {
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
